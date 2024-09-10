@@ -8,14 +8,11 @@ pipeline {
 
     stages {
         stage('Build') {
-            steps {
-                // Get some code from a GitHub repository
-                git 'https://github.com/PoojaPulivarthi/Project1.git'
-
-                // Run Maven on a Unix agent.
-                sh "mvn -Dmaven.test.failure.ignore=true clean package"
-
-            }        
+            steps{
+                git url:'https://github.com/PoojaPulivarthi/Project1/', branch: "master"
+                sh 'mvn clean package'
+              
+            }   
         }
        stage('Generate Test Reports') {
            steps {
