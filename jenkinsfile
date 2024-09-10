@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Build') {
             steps{
-                git url:'https://github.com/PoojaPulivarthi/Project1/', branch: "master"
+                git url:'https://github.com/poojaPulivarthi/Project1/', branch: "master"
                 sh 'mvn clean package'
               
             }   
@@ -21,7 +21,7 @@ pipeline {
             }
        stage('Create Docker Image') {
            steps {
-               sh 'docker build -t Poojapulivarthi39/banking-project:1.0 .'
+               sh 'docker build -t poojapulivarthi39/banking-project:1.0 .'
                     }
                 }
        stage('Docker-Login') {
@@ -33,7 +33,7 @@ pipeline {
                 }
        stage('Push-Image') {
            steps {
-               sh 'docker push Poojapulivarthi39/banking-project:1.0'
+               sh 'docker push poojapulivarthi39/banking-project:1.0'
                      }
                 }
        stage('Config & Deployment') {
